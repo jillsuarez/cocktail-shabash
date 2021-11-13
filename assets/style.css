@@ -108,7 +108,7 @@ li a{
     padding: 30px;
     margin-top: 20px;
 }
-.-text {
+.movie-text {
     color: #fff;
 }
 
@@ -161,7 +161,7 @@ li a{
     background-position: center;
 }
 
-.password-project {
+.movie-project {
     width: 400px;
     height: 400px;
     background: #fff;
@@ -294,7 +294,7 @@ li a{
         background-color:transparent rgba(0, 0, 0, 0.4);
     }
 
-    .password-project {
+    .movie-project {
         width: 250px;
         height: 400px;
         background: #fff;
