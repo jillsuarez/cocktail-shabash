@@ -1,4 +1,27 @@
-var mainDiv = document.getElementById("main")
+var mainDiv = document.getElementById("main");
+var felid = document.querySelector('textarea'); // comment Section textarea
+var backUp = felid.getAttribute('placeholder'); // comment Section
+var commentBtn = document.querySelector('.comment-btn'); // comment Section
+var clear = document.getElementById('clear');  ///clear textarea 
+
+felid.onfocus = function() {     /// textarea 
+    this.setAttribute('placeholder', '');
+    this.style.borderColor = "hotpink";
+    commentBtn.style.display = "block"
+};
+
+felid.onblur = function(){     
+    this.setAttribute('placeholder', backUp);
+    this.style.borderColor = "hotpink"
+};
+
+clear.onclick = function() {
+    commentBtn.style.display = "none";
+    felid.value = "";
+}
+
+
+
 
 mainDiv.setAttribute("class", "container");
 
