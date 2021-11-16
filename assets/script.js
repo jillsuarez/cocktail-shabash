@@ -5,6 +5,7 @@ var commentBtn = document.querySelector('.comment-btn'); // comment Section
 var clear = document.getElementById('clear');  ///clear textarea 
 var cocktailNameDiv = document.getElementById("cockatil-d");
 var movieNameDiv = document.getElementById("movie-d");
+var movieImageDiv = document.getElementById("movie-lives");
 
 felid.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
@@ -56,10 +57,34 @@ function getRandomMovie () {
         console.log(popularMovies)
         var randomMovie = popularMovies.original_title
         console.log(randomMovie)
+        var movieId = popularMovies.id
+        console.log(movieId, "this is our first first api")
         var movieName = document.createElement("div")
         movieName.setAttribute("p", randomMovie)
         movieNameDiv.appendChild(movieName)
+        var posterPath = popularMovies.poster_path
+        console.log(posterPath)
+        configuration(posterPath);
+
     }) 
+}
+
+
+function configuration(posterPath) {
+    fetch("https://api.themoviedb.org/3/configuration?api_key=b61f9e5cd6af472f99fe271ee07c0fcb").then(function(response){
+        return response.json()
+    }).then(data => {
+        console.log(data, "this is the configuration api");
+        var baseUrl = data.images.base_url
+        console.log(baseUrl)
+        var posterSize = data.images.poster_sizes[2]
+        console.log(posterSize)
+        var movieImage = document.createElement("img");
+        movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
+        movieImageDiv.appendChild(movieImage)
+        console.log(movieImage)
+
+    })
 }
 
 getRandomMovie();
