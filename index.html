@@ -54,53 +54,70 @@
         <div class="hero-text">
             <h1>
                 <span class="firstWord">Are You Ready</span><br>Grab Babe
-                <br>Grab Your Shaker
+                <br>Grab Your Remote
+                <br>Grab your Shaker
             </h1>
             <a href="https://www.imdb.com/" class="movie-cta"><span class="resume-text">Browse Movies</span></a>
         </div>
     </section>
     <!-- End of Hero -->
 
+    <!-- Start of aniamation --->
+    <!-- <div class="container-drop"></div> 
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="border"></div>
+        <div class="border"></div> -->
+
     <!--Project section-->
     <section id="cocktail">
-        <div class="cocktail-container">
+         <div class="cocktail-container">
             <div  class="background-img"></div>
-            <div class="cocktail-header">Shabash</div>
+            <div class="cocktail-header" >
+                <button class="btn-1" id='myshabash'>
+                Shabash
+                </button>
+            </div>
             <div class="cocktail">
                 <div class="project-item">
-                    <div  id="main" class="movie">
+                    <div class="cocktail-project" id="cocktail-i">
+                        <iframe src="https://giphy.com/embed/wNimAOWcBYuS4" frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe>
                         <div class="text-container">
                             <h2 class="name">Cocktails </h2>
-                            <div class="content">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente facilis suscipit eligendi repellendus repellat, dolore beatae dignissimos nobis qui consequatur nam itaque modi amet enim officia sed quia. Id corrupti enim ad, quis corporis ut a iure quam nisi modi est facere nam odit exercitationem iusto laborum, reiciendis earum. A?</p>p>
+                            <div class="content" id="cockatil-d">
+                            <p>Place holder for cocktail name a specs how to make i to be inserted and generated with js</p>
                             </div>
                         </div>
-                        <button class="button">
-                            <a href="" class="button-text">
-                                <h3>Choose Cocktails</h3>
-                            </a>
-                        </button>
                     </div>
                 </div>
 
                 <div class="project-item">
-                    <div class="movie-project">
+                    <div class="movie" id="movie-i">
+                        <iframe src="https://giphy.com/embed/wkPgpQeAlCnXW"frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe>
                         <div class="text-container">
-                            <h2 class="name">Movie
-                            </h2>
-                            <div class="content">
-                            <p>Choose from Hundreds of Movies ?????????? </p>
+                            <h2 class="name">Movies</h2>
+                            <div class="content" id="movie-d">
+                            <p>Placeholder for movie title and description to be inserted and generated with js</p>
                             </div>
-                        </div>    
-                        <button class="button">
-                            <a href="" class="button-text">
-                                <h3>View Movies</h3>
-                            </a>
-                        </button>
-                    </div>
-
+                        </div>
+                    </div>    
+                </div>
             </div>
-        </div>
+        
+         </div>
+    </div>
 
     </section>
     <!-- ENd of project Section-->
@@ -110,11 +127,23 @@
         <div class="about-container">
                 <div class="about-section">
                  <div  class="img-container">
-                    <div class="about-image"></div>
+                    <div class="comment-section">
+                        <h2>Leave Us a Comment</h2>
+                        <form>
+                            <textarea id="commenttext" placeholder="Add Your Comment"></textarea>
+                            <div class="comment-btn">
+                                <input type="submit" value="Comment">
+                                <ul id="unordered">
+
+                                </ul>
+                                <button id="clear">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                  </div>
                     <div class="about-text">
-                    About section ----
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nam facere cumque. Placeat accusantium nesciunt nisi repudiandae molestiae, hic, aut obcaecati quae labore deleniti ullam nulla corrupti voluptatum sapiente fugiat?
+                    About section -
+                    We want to thank you for checking our website out. Our goal is to provide an amazing user experience. Here's the scenario: you have a date night, and you don't know what to watch or what to drink. You're in luck! We put these two difficult decisions together. We call it <strong>Shabash</strong>.  Here, we randomly choose a cocktail and a movie to pair together. Don't like your first click? Try it out again. The possibilities are endless!
                     </div>
                 </div>
         </div>
@@ -124,11 +153,8 @@
     <!-- Social Icons-->
     <section id="contactme">
         <div class="social-icon">
-            <div class="fb">
-                <a href=""><i class="fab fa-facebook-square"></i></a>
-            </div>
-            <div class="ig">
-                <a href=""><i class="fab fa-instagram-square"></i></a>
+            <div class="twitter">
+                <a href=""><i class="fab fa-twitter-square"></i></a>
             </div>
             <div class="gh">
                 <a href="https://github.com/jillsuarez/cocktail-shabash"><i class="fab fa-github"></i></a>
