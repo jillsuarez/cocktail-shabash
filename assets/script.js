@@ -18,7 +18,7 @@ felid.onblur = function(){
     this.style.borderColor = "hotpink"
 };
 
-clear.onclick = function() {
+clear.onclick = function() {     //// comment text area clear 
     commentBtn.style.display = "none";
     felid.value = "";
 }
