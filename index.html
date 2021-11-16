@@ -4,27 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cocktail-Shabash</title>
+    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
-    <div>
-        <h1>Cocktail-Shabash <i class="fas fa-cocktail"></i></h1>
+    <!-- Desktop nav bar -->
+    <section id="nav">
+        <div class="nav-bar">
+            <div class="links">
+                <ul>
+                    <li><a href="#name" id="name">Cocktail-Shabash<i class="fas fa-cocktail"></i></a></li>
+                    <li><a href="#cocktail" id="cocktail">cocktail</a><li>
+                    <li><a href="#aboutme" id="about">About</a></li>
+                    <li><a href="#contactme" id="contact">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End of Desktop Nav bar-->
+
+    <!-- Mobile Nav Bar -->
+    <section id="mobile-nav"> 
+        <div class="mobile-nav-bar">
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="#" id="name"><i class="fas fa-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="#cocktail" id="cocktail"><i class="fas fa-folder"></i></a>
+                    </li>
+                    <li>
+                        <a href="#aboutme" id="about"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li>
+                        <a href="#contactme" id="contact"><i class="fas fa-envelope-open-text"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero section-->
+    <section id="hero">
+        <div class="container">
+            <div class="overlay"></div>
+            <div class="image-container"></div>
+        </div>
+        <div class="hero-text">
+            <h1>
+                <span class="firstWord">Are You Ready</span><br>Grab Babe
+                <br>Grab Your Remote
+                <br>Grab your Shaker
+            </h1>
+        </div>
+    </section>
+    <!-- End of Hero -->
+
+    <!-- Start of aniamation --->
+    <!-- <div class="container-drop">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="border"></div>
+        <div class="border"></div> 
+    </div>  -->
+
+    <!--Project section-->
+    <section id="cocktail">
+         <div class="cocktail-container">
+            <div  class="background-img"></div>
+            <div class="cocktail-header" >
+                <button class="btn-1" id='myshabash'>
+                Shabash
+                </button>
+            </div>
+            <div class="cocktail">
+                <div class="project-item">
+                    <div class="cocktail-project" id="cocktail-i">
+                        <iframe src="https://giphy.com/embed/wNimAOWcBYuS4" frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe>
+                        <div class="text-container">
+                            <h2 class="name">Cocktails </h2>
+                            <div class="content" id="cockatil-d">
+                            <p>Place holder for cocktail name a specs how to make i to be inserted and generated with js</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="movie" id="movie-i">
+                        <iframe src="https://giphy.com/embed/wkPgpQeAlCnXW"frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe>
+                        <div class="text-container">
+                            <h2 class="name">Movies</h2>
+                            <div class="content" id="movie-d">
+                            <p>Placeholder for movie title and description to be inserted and generated with js</p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        
+         </div>
     </div>
-    <div class="nav-bar"></div>
-    <div class="about-section">
-        <p class="text-about">About:
-            Find the perfect recipe on Cocktail Shabash. Let us know what spirit you have and we’ll let you know the possibilities! 
-            </p>
-    </div>
-    <div class="spirit-btn">
-        <h1>Base Spirit</h1>
-        <h2>Please Select One</h2>
-        <button class="btn"> <a href="">Whiskey</a></button>
-        <button class="btn"> <a href="">Rum</a></button>
-        <button class="btn"> <a href="">Gin</a></button>
-        <button class="btn"> <a href="">Vodka</a></button>
-        <button class="btn"> <a href="">Tequila</a></button>
-    </div>
-    <footer class="footer"> Made By Team Offline<i class="fas fa-cocktail"></i></footer>
+
+    </section>
+    <!-- ENd of project Section-->
+
+    <!--About Section-->
+    <section id="aboutme">
+        <div class="about-container">
+                <div class="about-section">
+                 <div  class="img-container">
+                    <div class="comment-section">
+                        <h2>Leave Us a Comment</h2>
+                        <form>
+                            <textarea placeholder="Add Your Comment"></textarea>
+                            <div class="comment-btn">
+                                <input type="submit" value="Comment">
+                                <button id="clear">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                 </div>
+                    <div class="about-text">
+                    About section -
+                    We want to thank you for checking our website out , our goal is to provide an amazing user experience , just think you have a date night you don't know what to watch don't know what to drink , your in luck we put these two difficult decision together we call it <strong>Shabash</strong>.  Here we randomly chose a cocktail and a movie to pair together don't like your first click try it out again the possibilities are endless.
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!--End Of About Section-->
+    
+    <!-- Social Icons-->
+    <section id="contactme">
+        <div class="social-icon">
+            <div class="twitter">
+                <a href=""><i class="fab fa-twitter-square"></i></a>
+            </div>
+            <div class="gh">
+                <a href="https://github.com/jillsuarez/cocktail-shabash"><i class="fab fa-github"></i></a>
+            </div>
+        </div>  
+    </section>
+    <footer>
+           <h2>Made by TeamOffline</h2><i class="fas fa-cocktail"></i> 
+    </footer>
+    <script src="assets/script.js"></script>
 </body>
 </html>
