@@ -1,8 +1,10 @@
-var mainDiv = document.getElementById("main");
+var mainDiv = document.getElementById("cocktail-i");
 var felid = document.querySelector('textarea'); // comment Section textarea
 var backUp = felid.getAttribute('placeholder'); // comment Section
 var commentBtn = document.querySelector('.comment-btn'); // comment Section
 var clear = document.getElementById('clear');  ///clear textarea 
+var cocktailNameDiv = document.getElementById("cockatil-d");
+var movieNameDiv = document.getElementById("movie-d");
 
 felid.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
@@ -39,6 +41,7 @@ function getRandomDrink () {
        var cocktailName = document.createElement("div")
        cocktailName.setAttribute("p", data.drinks[0].strDrink)
        console.log(cocktailName)
+       cocktailNameDiv.appendChild(cocktailName)
     
        })
     }
@@ -48,9 +51,14 @@ function getRandomMovie () {
         return response.json()
     }).then(data => {
         console.log(data);
-        var randomMovie = Math.floor(Math.random() * 20)
-        var popularMovies = data.results[randomMovie]
+        var findRandomMovie = Math.floor(Math.random() * 20)
+        var popularMovies = data.results[findRandomMovie]
         console.log(popularMovies)
+        var randomMovie = popularMovies.original_title
+        console.log(randomMovie)
+        var movieName = document.createElement("div")
+        movieName.setAttribute("p", randomMovie)
+        movieNameDiv.appendChild(movieName)
     }) 
 }
 
