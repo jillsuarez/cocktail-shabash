@@ -90,6 +90,7 @@ function getRandomDrink () {
         savedMovies.push(saveObject)
         localStorage.setItem("savedMovies", JSON.stringify(savedMovies))
         console.log(savedMovies)
+        console.log("")
 
     }) 
 }
