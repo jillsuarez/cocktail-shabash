@@ -1,7 +1,7 @@
 # cocktail-shabash
 ## Introduction
 
-Cocktail-Shabash is an application designed to rectify the coordination problem a user faces when trying to design an at-home date night. The user in question is presented with a button, properly coined the “Shabash” button, which will sort through a list of options from AP1 and AP2 to produce a randomly assigned pairing of a cocktail and movie. If the user is displeased with their presented option, the user can simply reshuffle their options by clicking the “Shabash” button for (in theory) infinite combinations.
+Cocktail-Shabash is an application designed to rectify the coordination problem a user faces when trying to design an at-home date night. The user in question is presented with a button, properly coined the “Shabash” button, which will sort through a list of options from CocktailDB and MovieDB to produce a randomly assigned pairing of a cocktail and movie. If the user is displeased with their presented option, the user can simply reshuffle their options by clicking the “Shabash” button for (in theory) infinite combinations.
 
 ## Built With: 
 
@@ -39,20 +39,24 @@ Updated flash extension
 
 ## Credits
 
-Marcio Araujo -- https://github.com/Jump89
-Jillian Suarez -- https://github.com/jillsuarez
-Kyra Wesley -- https://github.com/KSWES
+1. Marcio Araujo -- https://github.com/Jump89
+2. Jillian Suarez -- https://github.com/jillsuarez
+3. Kyra Wesley -- https://github.com/KSWES
 
 ## Project Status 
 
 The version of the application that is publicly available is designed to fulfill the basic functions of the MVP. In the future, we would like to expand on this application by implementing the following innovations: 
 
-Expanded options for possible cocktails
-Expanded options for possible movies 
-Providing the recipe instructions below the cocktail image and name 
-Providing the platform where the movie can be viewed beneath the movie image and name.
+1. Expanded options for possible cocktails.
+2. Expanded options for possible movies.
+3. Providing the recipe instructions below the cocktail image and name. 
+4. Providing the platform where the movie can be viewed beneath the movie image and name.
 
 ## Resources and Acknowledgements
+
+APIS
+1. https://www.themoviedb.org/
+2. https://www.thecocktaildb.com/
 
 
 
