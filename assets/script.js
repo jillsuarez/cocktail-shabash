@@ -18,7 +18,7 @@ felid.onblur = function(){
     this.style.borderColor = "hotpink"
 };
 
-clear.onclick = function() {     //// comment text area clear 
+clear.onclick = function() {
     commentBtn.style.display = "none";
     felid.value = "";
 }
@@ -39,13 +39,13 @@ function getRandomDrink () {
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(img)
        mainDiv.appendChild(img)
-       var cocktailName = document.createElement("div")
-       cocktailName.setAttribute("p", data.drinks[0].strDrink)
+       var cocktailName = document.createElement("h1")
+       cocktailName.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
     
        })
-    }
+}
 
 function getRandomMovie () {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
@@ -59,8 +59,8 @@ function getRandomMovie () {
         console.log(randomMovie)
         var movieId = popularMovies.id
         console.log(movieId, "this is our first first api")
-        var movieName = document.createElement("div")
-        movieName.setAttribute("p", randomMovie)
+        var movieName = document.createElement("h1")
+        movieName.innerHTML = randomMovie
         movieNameDiv.appendChild(movieName)
         var posterPath = popularMovies.poster_path
         console.log(posterPath)
