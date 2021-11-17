@@ -1,4 +1,5 @@
 var mainDiv = document.getElementById("cocktail-i");
+
 var field = document.querySelector('.comment-box'); // comment Section textarea
 console.log(field)
 var backUp = field.getAttribute('placeholder'); // comment Section
@@ -10,6 +11,9 @@ var movieImageDiv = document.getElementById("movie-lives");
 var moviePlaceholder = document.createElement("img");
 moviePlaceholder.setAttribute("src","https://duetaz.org/wp-content/uploads/2018/07/Movie-Night.jpg") 
 movieImageDiv.appendChild(moviePlaceholder)
+var cocktailPlaceholder = document.createElement("img");
+cocktailPlaceholder.setAttribute("src", "https://media.istockphoto.com/vectors/vector-set-of-cocktails-hand-drawn-vector-illustration-is-sketch-on-vector-id1131305100?k=20&m=1131305100&s=612x612&w=0&h=vbkXDs9g5wL108CY8jyK1IqRDnLIWXNxNsrLq5y2TQ0=")
+mainDiv.appendChild(cocktailPlaceholder)
 var img = document.createElement("img");
 var imgTwo = document.createElement("img");
 var cocktailName = document.createElement("h1")
@@ -50,17 +54,20 @@ function getRandomDrink () {
 
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(img)
-       mainDiv.appendChild(img)
+       cocktailPlaceholder.replaceWith(img)
+       //mainDiv.replaceWith(img, cocktailPlaceholder)
        
        imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(imgTwo)
-       mainDiv.replaceChild(imgTwo,img)
+       img.replaceWith(imgTwo)
+       //mainDiv.replaceChild(imgTwo,img)
 
        cocktailName.innerHTML = data.drinks[0].strDrink
        cocktailNameTwo.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
-       cocktailNameDiv.replaceChild(cocktailNameTwo)
+       cocktailName.replaceWith(cocktailNameTwo)
+       //cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
     
        })
     }
@@ -108,8 +115,10 @@ function configuration(posterPath) {
         
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
         movieImageTwo.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
-        movieImageDiv.replaceChild(movieImage, moviePlaceholder)
-        movieImageDiv.replaceChild(movieImageTwo, movieImage)
+        moviePlaceholder.replaceWith(movieImage)
+        movieImage.replaceWith(movieImageTwo)
+        //movieImageDiv.replaceChild(movieImage, moviePlaceholder)
+        //movieImageDiv.replaceChild(movieImageTwo, movieImage)
         console.log(movieImage)
 
     })
