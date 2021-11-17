@@ -6,6 +6,15 @@ var clear = document.getElementById('clear');  ///clear textarea
 var cocktailNameDiv = document.getElementById("cocktail-d");
 var movieNameDiv = document.getElementById("movie-d");
 var movieImageDiv = document.getElementById("movie-lives");
+var moviePlaceholder = document.createElement("img");
+moviePlaceholder.setAttribute("src","https://duetaz.org/wp-content/uploads/2018/07/Movie-Night.jpg") 
+movieImageDiv.appendChild(moviePlaceholder)
+var img = document.createElement("img");
+var imgTwo = document.createElement("img");
+var cocktailName = document.createElement("h1")
+var cocktailNameTwo = document.createElement("h1")
+var movieName = document.createElement("h1")
+var movieNameTwo = document.createElement("h1")
 
 felid.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
@@ -35,14 +44,20 @@ function getRandomDrink () {
         console.log(data);
         var drinkId = data.drinks[0].idDrink
         console.log(drinkId);
-       var img = document.createElement("img");
+
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(img)
        mainDiv.appendChild(img)
-       var cocktailName = document.createElement("h1")
+       
+       imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
+       console.log(imgTwo)
+       mainDiv.replaceChild(imgTwo,img)
+
        cocktailName.innerHTML = data.drinks[0].strDrink
+       cocktailNameTwo.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
+       cocktailNameDiv.replaceChild(cocktailNameTwo)
     
        })
     }
@@ -59,16 +74,17 @@ function getRandomMovie () {
         console.log(randomMovie)
         var movieId = popularMovies.id
         console.log(movieId, "this is our first first api")
-        var movieName = document.createElement("h1")
+        
         movieName.innerHTML = randomMovie
+        movieNameTwo.innerHTML = randomMovie
         movieNameDiv.appendChild(movieName)
+        movieNameDiv.replaceChild(movieNameTwo, movieName)
         var posterPath = popularMovies.poster_path
         console.log(posterPath)
         configuration(posterPath);
 
     }) 
 }
-
 
 function configuration(posterPath) {
     fetch("https://api.themoviedb.org/3/configuration?api_key=b61f9e5cd6af472f99fe271ee07c0fcb").then(function(response){
@@ -81,14 +97,14 @@ function configuration(posterPath) {
         console.log(posterSize)
         var movieImage = document.createElement("img");
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
-        movieImageDiv.appendChild(movieImage)
+        movieImageDiv.replaceChild(movieImage, moviePlaceholder)
         console.log(movieImage)
 
     })
 }
 
-getRandomMovie();
-getRandomDrink();
+//getRandomMovie();
+//getRandomDrink();
 
 
 const form = document.querySelector('form');
