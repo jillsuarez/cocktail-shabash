@@ -18,7 +18,7 @@ felid.onblur = function(){
     this.style.borderColor = "hotpink"
 };
 
-clear.onclick = function() {
+clear.onclick = function() {     //// comment text area clear 
     commentBtn.style.display = "none";
     felid.value = "";
 }
@@ -45,7 +45,7 @@ function getRandomDrink () {
        cocktailNameDiv.appendChild(cocktailName)
     
        })
-}
+    }
 
 function getRandomMovie () {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
@@ -89,3 +89,48 @@ function configuration(posterPath) {
 
 getRandomMovie();
 getRandomDrink();
+
+
+const form = document.querySelector('form');
+const ul = document.querySelector('ul');
+const button = document.querySelector('button');
+const input = document.getElementById('comment');
+let itemsArray = localStorage.getItem('comment') ? JSON.parse(localStorage.getItem('comment')) : [];
+
+localStorage.setItem('comment', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('comment'));
+
+const liMaker = (text) => {
+  const li = document.createElement('li');
+  li.textContent = text;
+  ul.appendChild(li);
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  itemsArray.push(input.value);
+  localStorage.setItem('comment', JSON.stringify(itemsArray));
+  liMaker(input.value);
+  input.value = "";
+});
+
+data.forEach(item => {
+  liMaker(item);
+});
+
+button.addEventListener('click', function () {
+  localStorage.clear();
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+  itemsArray = [];
+});
+
+
+liMaker();
+
+/*https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ */
+
+document.getElementById('myshabash').addEventListener('click', getRandomDrink)
+document.getElementById('myshabash').addEventListener('click', getRandomMovie)
