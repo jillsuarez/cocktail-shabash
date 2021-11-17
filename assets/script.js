@@ -9,7 +9,7 @@ var cocktailNameDiv = document.getElementById("cocktail-d");
 var movieNameDiv = document.getElementById("movie-d");
 var movieImageDiv = document.getElementById("movie-lives");
 var moviePlaceholder = document.createElement("img");
-moviePlaceholder.setAttribute("src","https://duetaz.org/wp-content/uploads/2018/07/Movie-Night.jpg") 
+moviePlaceholder.setAttribute("src","https://files.123freevectors.com/wp-content/uploads/freevectorimage/hand-drawn-movie-time-free-vector-3448.jpg") 
 movieImageDiv.appendChild(moviePlaceholder)
 var cocktailPlaceholder = document.createElement("img");
 cocktailPlaceholder.setAttribute("src", "https://media.istockphoto.com/vectors/vector-set-of-cocktails-hand-drawn-vector-illustration-is-sketch-on-vector-id1131305100?k=20&m=1131305100&s=612x612&w=0&h=vbkXDs9g5wL108CY8jyK1IqRDnLIWXNxNsrLq5y2TQ0=")
