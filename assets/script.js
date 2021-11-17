@@ -1,6 +1,7 @@
 var mainDiv = document.getElementById("cocktail-i");
-var felid = document.querySelector('textarea'); // comment Section textarea
-var backUp = felid.getAttribute('placeholder'); // comment Section
+var field = document.querySelector('.comment-box'); // comment Section textarea
+console.log(field)
+var backUp = field.getAttribute('placeholder'); // comment Section
 var commentBtn = document.querySelector('.comment-btn'); // comment Section
 var clear = document.getElementById('clear');  ///clear textarea 
 var cocktailNameDiv = document.getElementById("cocktail-d");
@@ -15,23 +16,25 @@ var cocktailName = document.createElement("h1")
 var cocktailNameTwo = document.createElement("h1")
 var movieName = document.createElement("h1")
 var movieNameTwo = document.createElement("h1")
+var movieImage = document.createElement("img");
+var movieImageTwo = document.createElement("img");
+var savedMovies = JSON.parse(localStorage.getItem("savedMovies"))||[]
 
-felid.onfocus = function() {     /// textarea 
+/*field.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
     this.style.borderColor = "hotpink";
-    commentBtn.style.display = "block"
 };
 
-felid.onblur = function(){     
+field.onblur = function(){     
     this.setAttribute('placeholder', backUp);
     this.style.borderColor = "hotpink"
 };
 
-clear.onclick = function() {     //// comment text area clear 
+field.onclick = function() {     //// comment text area clear 
     commentBtn.style.display = "none";
-    felid.value = "";
+    field.value = "";
 }
-
+*/
 
 
 
@@ -62,29 +65,35 @@ function getRandomDrink () {
        })
     }
 
-function getRandomMovie () {
-    fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
-        return response.json()
-    }).then(data => {
-        console.log(data);
-        var findRandomMovie = Math.floor(Math.random() * 20)
-        var popularMovies = data.results[findRandomMovie]
-        console.log(popularMovies)
-        var randomMovie = popularMovies.original_title
-        console.log(randomMovie)
-        var movieId = popularMovies.id
-        console.log(movieId, "this is our first first api")
+    function getRandomMovie () {
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
+            return response.json()
+        }).then(data => {
+            console.log(data);
+            var findRandomMovie = Math.floor(Math.random() * 20)
+            var popularMovies = data.results[findRandomMovie]
+            console.log(popularMovies)
+            var randomMovie = popularMovies.original_title
+            console.log(randomMovie)
+            var movieId = popularMovies.id
+            console.log(movieId)
+            
+            movieName.innerHTML = randomMovie
+            movieNameTwo.innerHTML = randomMovie
+            movieNameDiv.appendChild(movieName)
+            movieNameDiv.replaceChild(movieNameTwo, movieName)
+            var posterPath = popularMovies.poster_path
+            console.log(posterPath)
+            configuration(posterPath);
+        var saveObject = {movieId, randomMovie}
         
-        movieName.innerHTML = randomMovie
-        movieNameTwo.innerHTML = randomMovie
-        movieNameDiv.appendChild(movieName)
-        movieNameDiv.replaceChild(movieNameTwo, movieName)
-        var posterPath = popularMovies.poster_path
-        console.log(posterPath)
-        configuration(posterPath);
+        savedMovies.push(saveObject)
+        localStorage.setItem("savedMovies", JSON.stringify(savedMovies))
+        console.log(savedMovies)
 
     }) 
 }
+
 
 function configuration(posterPath) {
     fetch("https://api.themoviedb.org/3/configuration?api_key=b61f9e5cd6af472f99fe271ee07c0fcb").then(function(response){
@@ -95,26 +104,32 @@ function configuration(posterPath) {
         console.log(baseUrl)
         var posterSize = data.images.poster_sizes[2]
         console.log(posterSize)
-        var movieImage = document.createElement("img");
+        
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
+        movieImageTwo.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
         movieImageDiv.replaceChild(movieImage, moviePlaceholder)
+        movieImageDiv.replaceChild(movieImageTwo, movieImage)
         console.log(movieImage)
 
     })
 }
 
-//getRandomMovie();
-//getRandomDrink();
 
-
+const commentSaveBtn = document.getElementById("comment-save")
+commentSaveBtn.addEventListener("click", function() {
+    var commentText= field.value;
+    
+})
+/*
 const form = document.querySelector('form');
-const ul = document.querySelector('ul');
-const button = document.querySelector('button');
-const input = document.getElementById('comment');
-let itemsArray = localStorage.getItem('comment') ? JSON.parse(localStorage.getItem('comment')) : [];
+const ul = document.getElementById('unordered');
+const button = document.getElementById('buttonClear');
+const input = document.getElementById('item');
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
 
-localStorage.setItem('comment', JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('comment'));
+
 
 const liMaker = (text) => {
   const li = document.createElement('li');
@@ -126,7 +141,7 @@ form.addEventListener('submit', function (e) {
   e.preventDefault();
 
   itemsArray.push(input.value);
-  localStorage.setItem('comment', JSON.stringify(itemsArray));
+  localStorage.setItem('items', JSON.stringify(itemsArray));
   liMaker(input.value);
   input.value = "";
 });
@@ -143,10 +158,7 @@ button.addEventListener('click', function () {
   itemsArray = [];
 });
 
-
-liMaker();
-
-/*https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ */
+/**https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ */
 
 document.getElementById('myshabash').addEventListener('click', getRandomDrink)
 document.getElementById('myshabash').addEventListener('click', getRandomMovie)
