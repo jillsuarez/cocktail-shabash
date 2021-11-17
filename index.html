@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cocktail-Shabash</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/bootstrap-css /bootstrap-grid.min.css">
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
@@ -14,7 +16,7 @@
             <div class="links">
                 <ul>
                     <li><a href="#name" id="name">Cocktail-Shabash<i class="fas fa-cocktail"></i></a></li>
-                    <li><a href="#cocktail" id="cocktail">cocktail</a><li>
+                    <li><a href="#cocktail"id="cocktail">Cocktail</a><li>
                     <li><a href="#aboutme" id="about">About</a></li>
                     <li><a href="#contactme" id="contact">Contacts</a></li>
                 </ul>
@@ -32,7 +34,7 @@
                         <a href="#" id="name"><i class="fas fa-home"></i></a>
                     </li>
                     <li>
-                        <a href="#cocktail" id="cocktail"><i class="fas fa-folder"></i></a>
+                        <a href="#cocktail" id="cocktail"><i class="fas fa-cocktail"></i></a>
                     </li>
                     <li>
                         <a href="#aboutme" id="about"><i class="fas fa-user"></i></a>
@@ -61,30 +63,10 @@
     </section>
     <!-- End of Hero -->
 
-    <!-- Start of aniamation --->
-    <!-- <div class="container-drop">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="border"></div>
-        <div class="border"></div> 
-    </div>  -->
-
-    <!--Project section-->
+    <!--Start of shabash section-->
     <section id="cocktail">
          <div class="cocktail-container">
-            <div  class="background-img"></div>
+            <div class="background-img"></div>
             <div class="cocktail-header" >
                 <button class="btn-1" id='myshabash'>
                 Shabash
@@ -94,7 +76,6 @@
                 <div class="project-item">
                     <div class="cocktail-project" id="cocktail-i">
                         <div id="cocktail-lives"></div>
-                        <!-- <iframe src="https://giphy.com/embed/wNimAOWcBYuS4" frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe> -->
                         <div class="text-container">
                             <h2 class="name">Cocktails </h2>
                             <div class="content" id="cocktail-d">
@@ -104,10 +85,9 @@
                     </div>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" id="pictures">
                     <div class="movie" id="movie-i">
                         <div id="movie-lives"></div>
-                        <!-- <iframe src="https://giphy.com/embed/wkPgpQeAlCnXW"frameBorder="0" pointer-event:none; class="iframe-cocktail" allowFullScreen></iframe> -->
                         <div class="text-container">
                             <h2 class="name">Movies</h2>
                             <div class="content" id="movie-d">
@@ -122,13 +102,13 @@
     </div>
 
     </section>
-    <!-- ENd of project Section-->
+    <!-- ENd of Shabash Section-->
 
     <!--About Section-->
     <section id="aboutme">
         <div class="about-container">
                 <div class="about-section">
-                 <div  class="img-container">
+                 
                     <div class="comment-section">
                         <h2>Leave Us a Comment</h2>
                         <form>
@@ -142,9 +122,11 @@
 
                         </ul>
                     </div>
-                 </div>
+                 
                     <div class="about-text">
-                    About section -
+                        <h2 class="h2about">About US</h2>
+
+    
                     We want to thank you for checking our website out. Our goal is to provide an amazing user experience. Here is the scenario: You have a date night. You don't know what to watch or drink. You're in luck! We put these two difficult decisions together. We call it <strong>Shabash</strong>!  Here, we randomly choose a cocktail and a movie to pair together. Don't like your first click? Try it out again the possibilities are endless!
                     </div>
                 </div>
@@ -164,7 +146,16 @@
         </div>  
     </section>
     <footer>
-           <h2>Made by TeamOffline</h2><i class="fas fa-cocktail"></i> 
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h2>Made by TeamOffline</h2><i class="fas fa-cocktail"></i>
+            </div>
+            <div class="col-md-4">
+                <p class="copy">Copyright &copy; 2021 Cocktail-Shabash</p>
+            </div>
+            
+        </div>
+           
     </footer>
     <script src="assets/script.js"></script>
 </body>

@@ -43,7 +43,6 @@ function getRandomDrink () {
        cocktailName.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
-    
        })
     }
 
@@ -77,7 +76,7 @@ function configuration(posterPath) {
         console.log(data, "this is the configuration api");
         var baseUrl = data.images.base_url
         console.log(baseUrl)
-        var posterSize = data.images.poster_sizes[2]
+        var posterSize = data.images.poster_sizes[1]
         console.log(posterSize)
         var movieImage = document.createElement("img");
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
