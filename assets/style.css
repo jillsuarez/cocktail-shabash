@@ -4,13 +4,135 @@
     box-sizing: border-box;
 }
 
+  /* body {
+    width: 100vw;
+    height: 100vh;
+}
+.container-drop {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+}
+
+.particle {
+    height: 100px;
+    width: 100px;
+    top: -20%;
+    background-color:  hotpink; */
+    /*position: relative;   comment out acutcally*/
+    /* border-radius: 50%;
+    animation-name: slidein;
+    animation-duration: 10s;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateY(0%);
+    }
+  
+    to {
+      transform: translateY(100%);
+    }
+  } */ 
+/* @keyframes fall {
+    0% {top: -20%;};
+    20% {top: 0%;};
+    80% {top: 85%;};
+    100% {top: 100%;};
+} */
+/* 
+.particle::nth-of-type(2n) {
+    width: 60px;
+    height: 60px;
+}
+.particle:nth-of-type(3n) {
+    width: 120px;
+    height: 120px;
+}
+.particle::nth-of-type(1) {
+    left:30%;
+    animation-delay: 1s;
+}
+.particle:nth-of-type(2) {
+    left:60%;
+    animation-delay: 2s;
+}
+.particle::nth-of-type(3) {
+    left:25%;
+    animation-delay: 3s;
+}
+.particle::nth-of-type(4) {
+    left:75%;
+    animation-delay: 4s;
+}
+.particle::nth-of-type(5) {
+    left:35%;
+    animation-delay: 5s;
+}
+.particle::nth-of-type(6) {
+    left:50%;
+    animation-delay: 6s;
+}
+.particle::nth-of-type(7) {
+    left:65%;
+    animation-delay: 7s;
+}
+.particle::nth-of-type(8) {
+    left:35%;
+    animation-delay: 8s;
+}
+.particle::nth-of-type(9) {
+    left:55%;
+    animation-delay: 9s;
+}
+.particle::nth-of-type(10) {
+    left:55%;
+    animation-delay: 10s;
+}
+.particle::nth-of-type(11) {
+    left:35%;
+    animation-delay: 11s;
+}
+.particle::nth-of-type(12) {
+    left:50%;
+    animation-delay: 12s;
+}
+.particle::nth-of-type(13) {
+    left:65%;
+    animation-delay: 13s;
+}
+.particle::nth-of-type(14) {
+    left:40%;
+    animation-delay: 14s;
+}
+.particle::nth-of-type(15) {
+    left:60%;
+    animation-delay: 15s;
+}
+
+.border {
+    position: absolute;
+    background-color: hotpink;
+    width: 100%; height: 10%;
+    bottom: 0;
+}
+
+.border:nth-of-type(1) {
+    top: 0; left: 0;
+}
+.border:nth-of-type(2) {
+    top: 0; left: 0;
+}
+
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
     text-decoration: none;
-}
+}*/ 
 /* navbar section*/
 #mobile-nav {
     display: none;
@@ -72,7 +194,7 @@ li a{
     100% {
         transform: scale(1);
     }
-}
+} 
 
 .overlay {
     position: absolute;
@@ -116,7 +238,26 @@ li a{
     background-color: limegreen;
 }
 
-/* Project sectiom */
+/* Shabash section */
+.btn-1 {
+ width: 250px;
+ height: 60px;
+ line-height: 50px;
+ background:transparent;
+ color: hotpink;
+ font-size: 25px;
+ border: 2px solid limegreen;
+ margin-top: 20px;
+text-align: center;
+}
+iframe{
+    pointer-events: none;
+}
+
+
+.btn-1:hover {
+    background-color: limegreen;
+}
 
 .cocktail-container {
     width: 100%;
@@ -156,12 +297,11 @@ li a{
     box-shadow: -15px 7px 30px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     margin: 50px;
-    background-image: url('');
     background-size: cover;
     background-position: center;
 }
 
-.movie-project {
+.cocktail-project {
     width: 400px;
     height: 400px;
     background: #fff;
@@ -169,11 +309,17 @@ li a{
     box-shadow: -15px 7px 30px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin: 50px;
-    background-image: url('');
     background-size: cover;
     background-position: center;
 }
-
+.iframe-cocktail {
+    display: block;
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    border-top:62px solid limegreen;
+    
+}
 
 .text-container {
     position: absolute;
@@ -193,14 +339,14 @@ li a{
 
 .name {
     margin-top: 10px;
-    color: red;
+    color: hotpink;
     font-size: 2rem;
     text-align: center;
 }
 
 .content {
     padding: 25px 0;
-    color: black;
+    color: hotpink;
 }
 
 .button {
@@ -211,10 +357,6 @@ li a{
     margin-bottom: 50px;
     background-color:  transparent;
     
-}
-
-.button-text {
-    color: black;
 }
 
 
@@ -244,13 +386,53 @@ li a{
     flex-flow: wrap;
     
 }
-
-.about-image {
+/* comment section */
+.comment-section {
     height: 450px;
     width: 400px;
-    background-image: url('');
+    
+    padding:15px 10px ;
     background-size: cover;
     background-position: center;
+    align-items: center;
+}
+.comment-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: hotpink;
+}
+textarea {
+    height: 100px;
+    width: 100%;
+    border: none;
+    border: 2px solid #aaa;
+    background-color: transparent;
+    margin-bottom: 10px;
+    resize: none;
+    outline: none;
+    transition: .5s;
+    justify-content: center;
+}
+input[type="submit"], button {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+input[type="submit"] {
+    color: limegreen;
+    background-color: hotpink;
+}
+button {
+    color: hotpink;
+    background-color: transparent;
+}
+
+comment-btn {
+    display: none;
 }
 
 .about-text {
@@ -258,7 +440,7 @@ li a{
     width: 40%;
     font-size: 1.5rem;
     margin-left: 100px;
-    
+       
 }
 
 .social-icon {
@@ -270,7 +452,9 @@ li a{
     margin: 25px 35px;
     animation: scale 15s;
 }
-    
+ i {
+     color: hotpink;
+ }
 
 
 /* Mobile View */
@@ -294,7 +478,7 @@ li a{
         background-color:transparent rgba(0, 0, 0, 0.4);
     }
 
-    .movie-project {
+    .cocktail-project {
         width: 250px;
         height: 400px;
         background: #fff;
@@ -332,13 +516,13 @@ li a{
         
     }
 
-    .about-image {
+    .comment-section {
         margin-top: 20px;
         height: 300px;
         width: 225px;
-        background-image: url();
         background-size: cover;
         background-position: center;
+        text-align: center;
     }
 
     .about-text {
@@ -355,10 +539,11 @@ li a{
 
 
 }
+/*end of mobile view */
 
 /* footer */
 footer{
-    background-color: green;
+    background-color: limegreen;
     width: 100%;
     padding: 40px 35px;
 }
