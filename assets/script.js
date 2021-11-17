@@ -3,7 +3,7 @@ var felid = document.querySelector('textarea'); // comment Section textarea
 var backUp = felid.getAttribute('placeholder'); // comment Section
 var commentBtn = document.querySelector('.comment-btn'); // comment Section
 var clear = document.getElementById('clear');  ///clear textarea 
-var cocktailNameDiv = document.getElementById("cockatil-d");
+var cocktailNameDiv = document.getElementById("cocktail-d");
 var movieNameDiv = document.getElementById("movie-d");
 var movieImageDiv = document.getElementById("movie-lives");
 
@@ -39,8 +39,8 @@ function getRandomDrink () {
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(img)
        mainDiv.appendChild(img)
-       var cocktailName = document.createElement("div")
-       cocktailName.setAttribute("p", data.drinks[0].strDrink)
+       var cocktailName = document.createElement("h1")
+       cocktailName.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
     
@@ -59,8 +59,8 @@ function getRandomMovie () {
         console.log(randomMovie)
         var movieId = popularMovies.id
         console.log(movieId, "this is our first first api")
-        var movieName = document.createElement("div")
-        movieName.setAttribute("p", randomMovie)
+        var movieName = document.createElement("h1")
+        movieName.innerHTML = randomMovie
         movieNameDiv.appendChild(movieName)
         var posterPath = popularMovies.poster_path
         console.log(posterPath)
