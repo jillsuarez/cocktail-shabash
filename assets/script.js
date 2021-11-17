@@ -18,7 +18,7 @@ felid.onblur = function(){
     this.style.borderColor = "hotpink"
 };
 
-clear.onclick = function() {     //// comment text area clear 
+clear.onclick = function() {
     commentBtn.style.display = "none";
     felid.value = "";
 }
@@ -45,7 +45,7 @@ function getRandomDrink () {
        cocktailNameDiv.appendChild(cocktailName)
     
        })
-    }
+}
 
 function getRandomMovie () {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
