@@ -23,6 +23,7 @@ var movieNameTwo = document.createElement("h1")
 var movieImage = document.createElement("img");
 var movieImageTwo = document.createElement("img");
 var savedMovies = JSON.parse(localStorage.getItem("savedMovies"))||[]
+var savedCocktail = JSON.parse(localStorage.getItem("savedCocktails"))||[]
 
 /*field.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
@@ -68,6 +69,12 @@ function getRandomDrink () {
        cocktailNameDiv.appendChild(cocktailName)
        cocktailName.replaceWith(cocktailNameTwo)
        //cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
+
+       var saveObjectCocktail = {drinkId, cocktailNameTwo,}
+        
+        savedCocktail.push(saveObjectCocktail)
+        localStorage.setItem("savedCocktail", JSON.stringify(savedCocktail))
+        console.log(savedCocktail)
     
        })
     }
@@ -97,7 +104,6 @@ function getRandomDrink () {
         savedMovies.push(saveObject)
         localStorage.setItem("savedMovies", JSON.stringify(savedMovies))
         console.log(savedMovies)
-        console.log("")
 
     }) 
 }
