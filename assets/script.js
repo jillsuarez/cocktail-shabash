@@ -1,10 +1,4 @@
 var mainDiv = document.getElementById("cocktail-i");
-
-var field = document.querySelector('.comment-box'); // comment Section textarea
-console.log(field)
-var backUp = field.getAttribute('placeholder'); // comment Section
-var commentBtn = document.querySelector('.comment-btn'); // comment Section
-var clear = document.getElementById('clear');  ///clear textarea 
 var cocktailNameDiv = document.getElementById("cocktail-d");
 var movieNameDiv = document.getElementById("movie-d");
 var movieImageDiv = document.getElementById("movie-lives");
@@ -29,21 +23,19 @@ var savedCocktails = JSON.parse(localStorage.getItem("savedCocktails"))||[]
 console.log("local storage movies:", savedMovies)
 console.log("local storage cocktails:", savedCocktails)
 
-/*field.onfocus = function() {     /// textarea 
-    this.setAttribute('placeholder', '');
-    this.style.borderColor = "hotpink";
-};
+var latestMovie = savedMovies[savedMovies.length - 1];
+var latestCocktail = savedCocktails[savedCocktails.length - 1];
+console.log("this is the latestMovie:", latestMovie)
+console.log("this is the latestCocktail:", latestCocktail)
 
-field.onblur = function(){     
-    this.setAttribute('placeholder', backUp);
-    this.style.borderColor = "hotpink"
-};
+var savedCombo = JSON.parse(localStorage.getItem("savedCombo"))||[]
+console.log("the is the parsed saved combo:", savedCombo)
 
-field.onclick = function() {     //// comment text area clear 
-    commentBtn.style.display = "none";
-    field.value = "";
-}
-*/
+var savedComboNames = JSON.parse(localStorage.getItem("savedComboNames"))||[]
+console.log("this is the parsed saved combo names:", savedComboNames)
+
+var savedShabashDiv = document.getElementById("comment");
+
 
 
 
@@ -53,28 +45,31 @@ function getRandomDrink () {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php").then(function(response){
         return response.json()
     }).then(data => {
-        // console.log(data);
+        //console.log(data);
         var drinkId = data.drinks[0].idDrink
-        // console.log(drinkId);
+        // console.log("this is the drinkId:", drinkId);
 
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
-    //    console.log(img)
+       //console.log(img)
        cocktailPlaceholder.replaceWith(img)
-       //mainDiv.replaceWith(img, cocktailPlaceholder)
+       
        
        imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
-    //    console.log(imgTwo)
+       //console.log(imgTwo)
        img.replaceWith(imgTwo)
-       //mainDiv.replaceChild(imgTwo,img)
+       
 
        cocktailName.innerHTML = data.drinks[0].strDrink
-       cocktailNameTwo.innerHTML = data.drinks[0].strDrink
-    //    console.log(cocktailName)
+       cocktailNameTwo.textContent = data.drinks[0].strDrink
+       var drinkName = data.drinks[0].strDrink
+       //console.log("this is the cocktail name:", cocktailName)
+    //    console.log("this is the cocktailNameTwo:", cocktailNameTwo)
        cocktailNameDiv.appendChild(cocktailName)
        cocktailName.replaceWith(cocktailNameTwo)
-       //cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
+    //    console.log(cocktailNameTwo)
+       
 
-       var saveObjectCocktail = {drinkId, cocktailNameTwo,}
+       var saveObjectCocktail = {drinkId, drinkName}
         
         savedCocktails.push(saveObjectCocktail)
         localStorage.setItem("savedCocktails", JSON.stringify(savedCocktails))
@@ -128,58 +123,27 @@ function configuration(posterPath) {
         movieImageTwo.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
         moviePlaceholder.replaceWith(movieImage)
         movieImage.replaceWith(movieImageTwo)
-        //movieImageDiv.replaceChild(movieImage, moviePlaceholder)
-        //movieImageDiv.replaceChild(movieImageTwo, movieImage)
         // console.log(movieImage)
 
     })
 }
 
 
-const commentSaveBtn = document.getElementById("comment-save")
-commentSaveBtn.addEventListener("click", function() {
-    var commentText= field.value;
-    
-})
-/*
-const form = document.querySelector('form');
-const ul = document.getElementById('unordered');
-const button = document.getElementById('buttonClear');
-const input = document.getElementById('item');
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-localStorage.setItem('items', JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('items'));
+function saveShabash() {
+    var latestMovieName = latestMovie.randomMovie
+    var latestCocktailName = latestCocktail.drinkName
+    console.log("this is the latest Movie Name:", latestMovieName)
+    var shabashCombo = {latestCocktailName, latestMovieName}
+    savedComboNames+=(shabashCombo)
+        localStorage.setItem("savedComboNames", JSON.stringify(shabashCombo))
+        console.log("this is the shabash combo:", shabashCombo)
+        
+        //savedShabashDiv.appendChild(savedComboNames)
 
-
-
-const liMaker = (text) => {
-  const li = document.createElement('li');
-  li.textContent = text;
-  ul.appendChild(li);
 }
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+saveShabash();
 
-  itemsArray.push(input.value);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
-  liMaker(input.value);
-  input.value = "";
-});
-
-data.forEach(item => {
-  liMaker(item);
-});
-
-button.addEventListener('click', function () {
-  localStorage.clear();
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
-  itemsArray = [];
-});
-
-/**https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ */
 
 document.getElementById('myshabash').addEventListener('click', getRandomDrink)
 document.getElementById('myshabash').addEventListener('click', getRandomMovie)
