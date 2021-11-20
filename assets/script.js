@@ -22,8 +22,12 @@ var movieName = document.createElement("h1")
 var movieNameTwo = document.createElement("h1")
 var movieImage = document.createElement("img");
 var movieImageTwo = document.createElement("img");
+//local storage variables
 var savedMovies = JSON.parse(localStorage.getItem("savedMovies"))||[]
-var savedCocktail = JSON.parse(localStorage.getItem("savedCocktails"))||[]
+var savedCocktails = JSON.parse(localStorage.getItem("savedCocktails"))||[]
+
+console.log("local storage movies:", savedMovies)
+console.log("local storage cocktails:", savedCocktails)
 
 /*field.onfocus = function() {     /// textarea 
     this.setAttribute('placeholder', '');
@@ -49,32 +53,32 @@ function getRandomDrink () {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php").then(function(response){
         return response.json()
     }).then(data => {
-        console.log(data);
+        // console.log(data);
         var drinkId = data.drinks[0].idDrink
-        console.log(drinkId);
+        // console.log(drinkId);
 
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
-       console.log(img)
+    //    console.log(img)
        cocktailPlaceholder.replaceWith(img)
        //mainDiv.replaceWith(img, cocktailPlaceholder)
        
        imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
-       console.log(imgTwo)
+    //    console.log(imgTwo)
        img.replaceWith(imgTwo)
        //mainDiv.replaceChild(imgTwo,img)
 
        cocktailName.innerHTML = data.drinks[0].strDrink
        cocktailNameTwo.innerHTML = data.drinks[0].strDrink
-       console.log(cocktailName)
+    //    console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
        cocktailName.replaceWith(cocktailNameTwo)
        //cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
 
        var saveObjectCocktail = {drinkId, cocktailNameTwo,}
         
-        savedCocktail.push(saveObjectCocktail)
-        localStorage.setItem("savedCocktail", JSON.stringify(savedCocktail))
-        console.log(savedCocktail)
+        savedCocktails.push(saveObjectCocktail)
+        localStorage.setItem("savedCocktails", JSON.stringify(savedCocktails))
+        console.log(savedCocktails)
     
        })
     }
@@ -83,22 +87,23 @@ function getRandomDrink () {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
             return response.json()
         }).then(data => {
-            console.log(data);
+            // console.log(data);
             var findRandomMovie = Math.floor(Math.random() * 20)
             var popularMovies = data.results[findRandomMovie]
-            console.log(popularMovies)
+            // console.log(popularMovies)
             var randomMovie = popularMovies.original_title
-            console.log(randomMovie)
+            // console.log(randomMovie)
             var movieId = popularMovies.id
-            console.log(movieId)
+            // console.log(movieId)
             
             movieName.innerHTML = randomMovie
             movieNameTwo.innerHTML = randomMovie
             movieNameDiv.appendChild(movieName)
             movieNameDiv.replaceChild(movieNameTwo, movieName)
             var posterPath = popularMovies.poster_path
-            console.log(posterPath)
+            // console.log(posterPath)
             configuration(posterPath);
+
         var saveObject = {movieId, randomMovie}
         
         savedMovies.push(saveObject)
@@ -113,11 +118,11 @@ function configuration(posterPath) {
     fetch("https://api.themoviedb.org/3/configuration?api_key=b61f9e5cd6af472f99fe271ee07c0fcb").then(function(response){
         return response.json()
     }).then(data => {
-        console.log(data, "this is the configuration api");
+        // console.log(data);
         var baseUrl = data.images.base_url
-        console.log(baseUrl)
+        // console.log(baseUrl)
         var posterSize = data.images.poster_sizes[1]
-        console.log(posterSize)
+        // console.log(posterSize)
         
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
         movieImageTwo.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
@@ -125,7 +130,7 @@ function configuration(posterPath) {
         movieImage.replaceWith(movieImageTwo)
         //movieImageDiv.replaceChild(movieImage, moviePlaceholder)
         //movieImageDiv.replaceChild(movieImageTwo, movieImage)
-        console.log(movieImage)
+        // console.log(movieImage)
 
     })
 }
