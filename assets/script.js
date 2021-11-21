@@ -51,7 +51,8 @@ function getRandomDrink () {
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(img)
        mainDiv.appendChild(img)
-       
+       img.classList.add("imageSize")
+
        imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
        console.log(imgTwo)
        mainDiv.replaceChild(imgTwo,img)
@@ -60,7 +61,7 @@ function getRandomDrink () {
        cocktailNameTwo.innerHTML = data.drinks[0].strDrink
        console.log(cocktailName)
        cocktailNameDiv.appendChild(cocktailName)
-       cocktailNameDiv.replaceChild(cocktailNameTwo)
+       cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
     
        })
     }
