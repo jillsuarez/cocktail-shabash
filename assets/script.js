@@ -132,10 +132,10 @@ function configuration(posterPath) {
 
 
 function saveShabash() {
-    var latestMovieName= latestMovie.randomMovie
+    var latestMovieName = latestMovie.randomMovie
     var latestCocktailName = latestCocktail.drinkName
     console.log("this is the latest Movie Name:", latestMovieName)
-    var shabashCombo = {latestCocktailName, latestMovieName}
+    var shabashCombo = latestCocktailName + " & " + latestMovieName
     savedComboNames+=(shabashCombo)
         localStorage.setItem("savedComboNames", JSON.stringify(shabashCombo))
         console.log("this is the shabash combo:", shabashCombo)
