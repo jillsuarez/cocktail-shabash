@@ -36,6 +36,8 @@ console.log("this is the parsed saved combo names:", savedComboNames)
 
 var savedShabashDiv = document.getElementById("comment");
 
+var saveComboEl = document.getElementById("combo-save");
+
 
 
 
@@ -130,20 +132,22 @@ function configuration(posterPath) {
 
 
 function saveShabash() {
-    var latestMovieName = latestMovie.randomMovie
+    var latestMovieName= latestMovie.randomMovie
     var latestCocktailName = latestCocktail.drinkName
     console.log("this is the latest Movie Name:", latestMovieName)
     var shabashCombo = {latestCocktailName, latestMovieName}
     savedComboNames+=(shabashCombo)
         localStorage.setItem("savedComboNames", JSON.stringify(shabashCombo))
         console.log("this is the shabash combo:", shabashCombo)
-        
-        //savedShabashDiv.appendChild(savedComboNames)
+
+        var comboList = document.createElement("li");
+        comboList.textContent = JSON.stringify(shabashCombo)
+        saveComboEl.appendChild(comboList)
 
 }
 
-saveShabash();
 
 
+document.getElementById('save-btn').addEventListener('click', saveShabash)
 document.getElementById('myshabash').addEventListener('click', getRandomDrink)
 document.getElementById('myshabash').addEventListener('click', getRandomMovie)
