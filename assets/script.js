@@ -1,15 +1,13 @@
 var mainDiv = document.getElementById("cocktail-i");
-var field = document.querySelector('.comment-box'); // comment Section textarea
-console.log(field)
-var backUp = field.getAttribute('placeholder'); // comment Section
-var commentBtn = document.querySelector('.comment-btn'); // comment Section
-var clear = document.getElementById('clear');  ///clear textarea 
 var cocktailNameDiv = document.getElementById("cocktail-d");
 var movieNameDiv = document.getElementById("movie-d");
 var movieImageDiv = document.getElementById("movie-lives");
 var moviePlaceholder = document.createElement("img");
-moviePlaceholder.setAttribute("src","https://duetaz.org/wp-content/uploads/2018/07/Movie-Night.jpg") 
+moviePlaceholder.setAttribute("src","https://files.123freevectors.com/wp-content/uploads/freevectorimage/hand-drawn-movie-time-free-vector-3448.jpg") 
 movieImageDiv.appendChild(moviePlaceholder)
+var cocktailPlaceholder = document.createElement("img");
+cocktailPlaceholder.setAttribute("src", "https://media.istockphoto.com/vectors/vector-set-of-cocktails-hand-drawn-vector-illustration-is-sketch-on-vector-id1131305100?k=20&m=1131305100&s=612x612&w=0&h=vbkXDs9g5wL108CY8jyK1IqRDnLIWXNxNsrLq5y2TQ0=")
+mainDiv.appendChild(cocktailPlaceholder)
 var img = document.createElement("img");
 var imgTwo = document.createElement("img");
 var cocktailName = document.createElement("h1")
@@ -18,23 +16,26 @@ var movieName = document.createElement("h1")
 var movieNameTwo = document.createElement("h1")
 var movieImage = document.createElement("img");
 var movieImageTwo = document.createElement("img");
+//local storage variables
 var savedMovies = JSON.parse(localStorage.getItem("savedMovies"))||[]
+var savedCocktails = JSON.parse(localStorage.getItem("savedCocktails"))||[]
 
-/*field.onfocus = function() {     /// textarea 
-    this.setAttribute('placeholder', '');
-    this.style.borderColor = "hotpink";
-};
+console.log("local storage movies:", savedMovies)
+console.log("local storage cocktails:", savedCocktails)
 
-field.onblur = function(){     
-    this.setAttribute('placeholder', backUp);
-    this.style.borderColor = "hotpink"
-};
+var latestMovie = savedMovies[savedMovies.length - 1];
+var latestCocktail = savedCocktails[savedCocktails.length - 1];
+console.log("this is the latestMovie:", latestMovie)
+console.log("this is the latestCocktail:", latestCocktail)
 
-field.onclick = function() {     //// comment text area clear 
-    commentBtn.style.display = "none";
-    field.value = "";
-}
-*/
+var savedCombo = JSON.parse(localStorage.getItem("savedCombo"))||[]
+console.log("the is the parsed saved combo:", savedCombo)
+
+var savedComboNames = JSON.parse(localStorage.getItem("savedComboNames"))||[]
+console.log("this is the parsed saved combo names:", savedComboNames)
+
+var savedShabashDiv = document.getElementById("comment");
+
 
 
 
@@ -44,24 +45,35 @@ function getRandomDrink () {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php").then(function(response){
         return response.json()
     }).then(data => {
-        console.log(data);
+        //console.log(data);
         var drinkId = data.drinks[0].idDrink
-        console.log(drinkId);
+        // console.log("this is the drinkId:", drinkId);
 
        img.setAttribute("src",data.drinks[0].strDrinkThumb)
-       console.log(img)
-       mainDiv.appendChild(img)
-       img.classList.add("imageSize")
-
+       //console.log(img)
+       cocktailPlaceholder.replaceWith(img)
+       
+       
        imgTwo.setAttribute("src",data.drinks[0].strDrinkThumb)
-       console.log(imgTwo)
-       mainDiv.replaceChild(imgTwo,img)
+       //console.log(imgTwo)
+       img.replaceWith(imgTwo)
+       
 
        cocktailName.innerHTML = data.drinks[0].strDrink
-       cocktailNameTwo.innerHTML = data.drinks[0].strDrink
-       console.log(cocktailName)
+       cocktailNameTwo.textContent = data.drinks[0].strDrink
+       var drinkName = data.drinks[0].strDrink
+       //console.log("this is the cocktail name:", cocktailName)
+    //    console.log("this is the cocktailNameTwo:", cocktailNameTwo)
        cocktailNameDiv.appendChild(cocktailName)
-       cocktailNameDiv.replaceChild(cocktailNameTwo, cocktailName)
+       cocktailName.replaceWith(cocktailNameTwo)
+    //    console.log(cocktailNameTwo)
+       
+
+       var saveObjectCocktail = {drinkId, drinkName}
+        
+        savedCocktails.push(saveObjectCocktail)
+        localStorage.setItem("savedCocktails", JSON.stringify(savedCocktails))
+        console.log(savedCocktails)
     
        })
     }
@@ -70,22 +82,23 @@ function getRandomDrink () {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=b61f9e5cd6af472f99fe271ee07c0fcb&language=en-US&page=1").then(function(response){
             return response.json()
         }).then(data => {
-            console.log(data);
+            // console.log(data);
             var findRandomMovie = Math.floor(Math.random() * 20)
             var popularMovies = data.results[findRandomMovie]
-            console.log(popularMovies)
+            // console.log(popularMovies)
             var randomMovie = popularMovies.original_title
-            console.log(randomMovie)
+            // console.log(randomMovie)
             var movieId = popularMovies.id
-            console.log(movieId)
+            // console.log(movieId)
             
             movieName.innerHTML = randomMovie
             movieNameTwo.innerHTML = randomMovie
             movieNameDiv.appendChild(movieName)
             movieNameDiv.replaceChild(movieNameTwo, movieName)
             var posterPath = popularMovies.poster_path
-            console.log(posterPath)
+            // console.log(posterPath)
             configuration(posterPath);
+
         var saveObject = {movieId, randomMovie}
         
         savedMovies.push(saveObject)
@@ -100,66 +113,37 @@ function configuration(posterPath) {
     fetch("https://api.themoviedb.org/3/configuration?api_key=b61f9e5cd6af472f99fe271ee07c0fcb").then(function(response){
         return response.json()
     }).then(data => {
-        console.log(data, "this is the configuration api");
+        // console.log(data);
         var baseUrl = data.images.base_url
-        console.log(baseUrl)
+        // console.log(baseUrl)
         var posterSize = data.images.poster_sizes[1]
-        console.log(posterSize)
+        // console.log(posterSize)
         
         movieImage.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
         movieImageTwo.setAttribute("src",  baseUrl + "/" + posterSize + posterPath)
-        movieImageDiv.replaceChild(movieImage, moviePlaceholder)
-        movieImageDiv.replaceChild(movieImageTwo, movieImage)
-        console.log(movieImage)
+        moviePlaceholder.replaceWith(movieImage)
+        movieImage.replaceWith(movieImageTwo)
+        // console.log(movieImage)
 
     })
 }
 
 
-const commentSaveBtn = document.getElementById("comment-save")
-commentSaveBtn.addEventListener("click", function() {
-    var commentText= field.value;
-    
-})
-/*
-const form = document.querySelector('form');
-const ul = document.getElementById('unordered');
-const button = document.getElementById('buttonClear');
-const input = document.getElementById('item');
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-localStorage.setItem('items', JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('items'));
+function saveShabash() {
+    var latestMovieName = latestMovie.randomMovie
+    var latestCocktailName = latestCocktail.drinkName
+    console.log("this is the latest Movie Name:", latestMovieName)
+    var shabashCombo = {latestCocktailName, latestMovieName}
+    savedComboNames+=(shabashCombo)
+        localStorage.setItem("savedComboNames", JSON.stringify(shabashCombo))
+        console.log("this is the shabash combo:", shabashCombo)
+        
+        //savedShabashDiv.appendChild(savedComboNames)
 
-
-
-const liMaker = (text) => {
-  const li = document.createElement('li');
-  li.textContent = text;
-  ul.appendChild(li);
 }
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+saveShabash();
 
-  itemsArray.push(input.value);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
-  liMaker(input.value);
-  input.value = "";
-});
-
-data.forEach(item => {
-  liMaker(item);
-});
-
-button.addEventListener('click', function () {
-  localStorage.clear();
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
-  itemsArray = [];
-});
-
-/**https://www.taniarascia.com/how-to-use-local-storage-with-javascript/ */
 
 document.getElementById('myshabash').addEventListener('click', getRandomDrink)
 document.getElementById('myshabash').addEventListener('click', getRandomMovie)
