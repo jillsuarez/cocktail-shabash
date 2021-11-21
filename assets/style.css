@@ -1,9 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
-    
+    box-sizing: border-box;  
 }
 body{
     background-color: indigo;
@@ -19,17 +17,14 @@ img {
     height: 100%;
 
 }
-
 #mobile-nav {
     display: none;
 }
-
 .nav-bar {
     position: absolute;
     z-index: 2;
     width: 100%;
 }
-
 ul {
     display: flex;
     align-items: center;
@@ -39,14 +34,12 @@ ul {
     height: 10vh;
     background-color: rgba(100, 100, 100, .02);
 }
-
 li a{
     display: block;
     color: limegreen;
     text-decoration: none;
     font-size: 1.5rem;
 }
-
 #name {
     color: pink;
     font-size: 30px;
@@ -61,7 +54,6 @@ li a{
     width: 100%;
     overflow: hidden;
 }
-
 .image-container {
     position: relative;
     background-image: url(./images/MV5BOWQ2OTAzNWYtMjI0OS00MWVmLTgzYTQtM2Q5ZGUzN2NiMDAwXkEyXkFqcGdeQXVyNzExMDYxODE@._V1_.jpg);
@@ -72,7 +64,6 @@ li a{
     margin-top: 0vh;
     animation: scale 15s;
 }
-
 @keyframes scale {
     0% {
         transform: scale(1.5);
@@ -81,7 +72,6 @@ li a{
         transform: scale(1);
     }
 } 
-
 .overlay {
     position: absolute;
     height: 100%;
@@ -91,7 +81,6 @@ li a{
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
-
 .hero-text {
     display: flex;
     justify-content: center;
@@ -105,11 +94,9 @@ li a{
     text-transform: uppercase;
     z-index: 2;
 }
-
 .firstWord {
     color: limegreen;
 }
-
 .movie-cta {
     border: 2px solid limegreen;
     width: 175px;
@@ -119,7 +106,6 @@ li a{
 .movie-text {
     color: #fff;
 }
-
 .movie-cta:hover {
     background-color: limegreen;
 }
@@ -136,16 +122,12 @@ li a{
  margin-top: 20px;
 text-align: center;
 }
-
 iframe{
     pointer-events: none;
 }
-
-
 .btn-1:hover {
     background-color: limegreen;
 }
-
 .cocktail-container {
     width: 100%;
     height: auto; 
@@ -157,7 +139,6 @@ iframe{
     margin-top: 0vh;
     animation: scale 15s;
 }
-
 .cocktail-header {
     font-size: 4rem;
     display: flex;
@@ -166,7 +147,6 @@ iframe{
     margin: 0;
     color: limegreen;
 }
-
 .cocktail {
     display: flex;
     align-items: center;
@@ -174,7 +154,6 @@ iframe{
     flex-flow: wrap;
    
 }
-
 .movie {
     width: 400px;
     height: 400px;
@@ -186,7 +165,6 @@ iframe{
     background-size: cover;
     background-position: center;
 }
-
 .cocktail-project {
     width: 400px;
     height: 400px;
@@ -198,8 +176,6 @@ iframe{
     background-size: cover;
     background-position: center;
 }
-
-
 .text-container {
     position: absolute;
     height: 75px;
@@ -211,23 +187,19 @@ iframe{
     overflow: hidden;
     
 }
-
 .text-container:hover {
     height: 200px;
 }
-
 .name {
     margin-top: 10px;
     color: hotpink;
     font-size: 2rem;
     text-align: center;
 }
-
 .content {
     padding: 25px 0;
     color: hotpink;
 }
-
 .button {
     border: 5px solid limegreen;
     width: 160px;
@@ -250,15 +222,12 @@ iframe{
     border-radius: 20px;
     background-color: limegreen;
 }
-
-
 .about-section {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: wrap;
 }
-
 .about-text {
     height: auto;
     width: 40%;
@@ -326,22 +295,18 @@ iframe{
     #nav {
         display: none;
     }
-    
     #mobile-nav {
         display: block;
     }
-
     .mobile-nav-bar {
         width: 100%;
         position: fixed;
         top: 0;
         z-index: 5;
     }
-    
     ul {
         background-color:transparent rgba(0, 0, 0, 0.4);
     }
-
     .cocktail-project {
         width: 250px;
         height: 400px;
@@ -354,7 +319,6 @@ iframe{
         background-size: cover;
         background-position: center;
     }
-
     .movie {
         width: 250px;
         height: 400px;
@@ -368,11 +332,6 @@ iframe{
         background-position: center;
        
     }
-
-    
-  
- 
-
     .about-container {
         display: table-row;
         align-items: center;
@@ -381,15 +340,12 @@ iframe{
         box-shadow: 15px 7px 30px rgba(0, 0, 0, 0.2);
         width: 250px;
     }
-
-
     .about-text {
         margin-left: 20px;
         width: 90%;
         font-size: 0.75rem;
         padding-bottom: 2rem;
     }
-
     .combo-section {
         margin-top: 20px;
         height: 300px;
@@ -398,9 +354,6 @@ iframe{
         background-position: center;
         text-align: center;
     }
-
-    
-
     #save-btn {
         width: 100px;
         height: 60px;
@@ -417,14 +370,11 @@ iframe{
        #save-btn:hover {
            background-color: indigo;
        }
-
     .social-icon i {
         font-size: 2rem;
         padding: 10px;
         margin-left: -10px;
     }
-
-
 }
 /*end of mobile view */
 
@@ -434,6 +384,12 @@ footer{
     width: 100%;
     padding: 40px 35px;
 }
+footer h2 {
+    display: inline;
+    color: hotpink;
+    font-size: 30px;
+    margin: 0;
+}
 .copy {
     padding-top: 13px;
     color: hotpink;
@@ -442,9 +398,4 @@ i {
     color: hotpink;
 }
 
- footer h2 {
-    display: inline;
-    color: hotpink;
-    font-size: 30px;
-    margin: 0;
-}
+/* end of footer*/
