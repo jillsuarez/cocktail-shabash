@@ -272,6 +272,23 @@ iframe{
    #save-btn:hover {
        background-color: indigo;
    }
+   #clear-btn {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    background:transparent;
+    color: hotpink;
+    font-size: 25px;
+    border: 2px solid indigo;
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 40px;
+    justify-content: center;
+    margin-left: 100px;
+   }
+   #clear-btn:hover {
+    background-color: indigo;
+   }
    .save-combo {
 
    }

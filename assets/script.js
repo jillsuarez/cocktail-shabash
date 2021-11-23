@@ -16,17 +16,9 @@ var movieName = document.createElement("h1")
 var movieNameTwo = document.createElement("h1")
 var movieImage = document.createElement("img");
 var movieImageTwo = document.createElement("img");
-//local storage variables
-var savedMovies = JSON.parse(localStorage.getItem("savedMovies"))||[]
-var savedCocktails = JSON.parse(localStorage.getItem("savedCocktails"))||[]
-
-console.log("local storage movies:", savedMovies)
-console.log("local storage cocktails:", savedCocktails)
-
-var latestMovie = savedMovies[savedMovies.length - 1];
-var latestCocktail = savedCocktails[savedCocktails.length - 1];
-console.log("this is the latestMovie:", latestMovie)
-console.log("this is the latestCocktail:", latestCocktail)
+ let allInfoArr = []
+ let cocktailName2 = ""
+ let movieName2 =""
 
 var savedCombo = JSON.parse(localStorage.getItem("savedCombo"))||[]
 console.log("the is the parsed saved combo:", savedCombo)
@@ -72,11 +64,7 @@ function getRandomDrink () {
        
 
        var saveObjectCocktail = {drinkId, drinkName}
-        
-        savedCocktails.push(saveObjectCocktail)
-        localStorage.setItem("savedCocktails", JSON.stringify(savedCocktails))
-        console.log(savedCocktails)
-    
+     cocktailName2 = saveObjectCocktail.drinkName;
        })
     }
 
@@ -102,11 +90,7 @@ function getRandomDrink () {
             configuration(posterPath);
 
         var saveObject = {movieId, randomMovie}
-        
-        savedMovies.push(saveObject)
-        localStorage.setItem("savedMovies", JSON.stringify(savedMovies))
-        console.log(savedMovies)
-
+         movieName2 = saveObject.randomMovie
     }) 
 }
 
@@ -132,18 +116,30 @@ function configuration(posterPath) {
 
 
 function saveShabash() {
-    var latestMovieName = latestMovie.randomMovie
-    var latestCocktailName = latestCocktail.drinkName
-    console.log("this is the latest Movie Name:", latestMovieName)
-    var shabashCombo = latestCocktailName + " & " + latestMovieName
-    savedComboNames+=(shabashCombo)
-        localStorage.setItem("savedComboNames", JSON.stringify(shabashCombo))
-        console.log("this is the shabash combo:", shabashCombo)
+   let obj = {}
+   obj.cocktail= cocktailName2;
+   obj.movie= movieName2;
+    allInfoArr.push(obj)
+    localStorage.setItem("allInfo", JSON.stringify(allInfoArr))
+    console.log(JSON.parse(localStorage.getItem("allInfo")), 'this is all of our info')
+    let localStorageArr=JSON.parse(localStorage.getItem("allInfo"))
+    if(localStorageArr.length > 1){
+    let itemPosition = localStorageArr.length-1
+ 
+    let item = localStorageArr[itemPosition]
+       console.log("this is item",item)
+    saveComboEl.innerHTML += `<li> ${item.cocktail} - ${item.movie} </li>`
+    }   
+    else{
+     JSON.parse(localStorage.getItem("allInfo")).map(singleObj => (saveComboEl.innerHTML += `<li> ${singleObj.cocktail} - ${singleObj.movie} </li>`));
 
-        var comboList = document.createElement("li");
-        comboList.textContent = JSON.stringify(shabashCombo)
-        saveComboEl.appendChild(comboList)
+    } 
+    
+}
 
+function clearLocalStorage () {
+    localStorage.clear();
+    location.reload(true);
 }
 
 
@@ -151,3 +147,5 @@ function saveShabash() {
 document.getElementById('save-btn').addEventListener('click', saveShabash)
 document.getElementById('myshabash').addEventListener('click', getRandomDrink)
 document.getElementById('myshabash').addEventListener('click', getRandomMovie)
+document.getElementById('clear-btn').addEventListener
+('click', clearLocalStorage)
